@@ -17,17 +17,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Task 2: Adding Risk Items Dynamically
     function addRiskItem(riskName, riskLevel, department) {
-        // Create a div for the risk card
+        // create a div for the risk card
         const riskCard = document.createElement("div");
         riskCard.classList.add("riskCard");
         
-        // Populate the risk card with details
+        // populating the risk card with info
         riskCard.innerHTML = `
             <strong>${riskName}</strong><br>
             Risk Level: <span class="riskLevel">${riskLevel}</span><br>
             Department: ${department}<br>
             <button class="resolveBtn">Resolve</button>
         `;
+        // Task 3: Removing Risk Items
+        // adding resolve button to risk cards
+        riskCard.querySelector(".resolveBtn").addEventListener("click", () => { 
+            riskDashboard.removeChild(riskCard); // removes risk cardx from parent
+        });
+
+
     }
 
 });
