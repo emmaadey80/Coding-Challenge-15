@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("riskForm").addEventListener("submit", function(event) {
         event.preventDefault(); //stops page refresh on form submission
 
-        const riskName = document.getElementById("riskName").value;
-        const riskLevel = document.getElementById("riskLevel").value;
-        const department = document.getElementById("department").value;
+        const riskName = document.getElementById("riskName").value; // user input of name
+        const riskLevel = document.getElementById("riskLevel").value; // user input of risk level
+        const department = document.getElementById("department").value; // user input of department
         
         // call function to add the risk item
         addRiskItem(riskName, riskLevel, department);
@@ -42,7 +42,34 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-    }
+        // Task 5: Implementing Bulk Updates
+        document.getElementById("increaseRiskLevels").addEventListener("click", () => {
+            document.querySelectorAll(".riskCard").forEach(card => {
+                const riskLevelSpan = card.querySelector(".riskLevel");
+                let newRiskLevel = riskLevelSpan.textContent;
+                
+                // Increase risk levels: Low → Medium, Medium → High, High remains unchanged
+                if (newRiskLevel === "Low") newRiskLevel = "Medium";
+                else if (newRiskLevel === "Medium") newRiskLevel = "High";
+                
+                // Update the displayed risk level
+                riskLevelSpan.textContent = newRiskLevel;
+                
+                // Update background color accordingly
+                switch (newRiskLevel) {
+                    case "Low": card.style.backgroundColor = "green"; break;
+                    case "Medium": card.style.backgroundColor = "yellow"; break;
+                    case "High": card.style.backgroundColor = "red"; break;
+                }
+            });
+        });
+        // Test Cases
+    addRiskItem("Data Breach", "High", "IT");
+    addRiskItem("Supply Chain Disruption", "Medium", "Operations");
+    addRiskItem("Market Fluctuations", "High", "Finance");
+    addRiskItem("Cybersecurity Threat", "High", "IT");
+    addRiskItem("HR Compliance Issue", "Low", "Human Resources");
+    addRiskItem("Employee Retention", "Low", "HR");
 
-});
+    });
 
