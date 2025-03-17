@@ -14,11 +14,29 @@
         #riskDashboard { 
         margin-top: 20px; 
         }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(194, 195, 189, 0.933);
+            margin: 10px;
+        }
+        header, footer {
+            padding: 9px;
+            text-align: center;
+            background-color: rgb(237, 244, 222);
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-    <h1>Risk Management Dashboard</h1>
-    
+    <header>
+        <h1>Risk Management Dashboard</h1>
+    </header>
+    <br>
     <form id="riskForm">
         <input type="text" id="riskName" placeholder="Risk Name" required>
         <select id="riskLevel">
@@ -33,6 +51,11 @@
     <button id="increaseRiskLevels">Increase Risk Levels</button>
     
     <div id="riskDashboard"></div>
+
+    <footer>
+        <p>&copy; 2025 Risk Management Inc.</p>
+    </footer>
+
     
     <script src="cc_15.js"></script>
 </body>
