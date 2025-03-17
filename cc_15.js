@@ -41,6 +41,14 @@ document.addEventListener("DOMContentLoaded", () => {
             riskDashboard.removeChild(riskCard); // removes risk cardx from parent
         });
 
+        // Task 6: Handling Event Propagation (Prevent unintended clicks from triggering parent events)
+        riskCard.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+
+        // Append the risk card to the dashboard
+        riskDashboard.appendChild(riskCard);
+    }
 
         // Task 5: Implementing Bulk Updates
         document.getElementById("increaseRiskLevels").addEventListener("click", () => {
