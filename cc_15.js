@@ -28,6 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
             Department: ${department}<br>
             <button class="resolveBtn">Resolve</button>
         `;
+        // Task 4: Categorizing Risks by Level
+        switch (riskLevel) { // assign background color based on risk level
+            case "Low": riskCard.style.backgroundColor = "green"; break; // if low risk, green background
+            case "Medium": riskCard.style.backgroundColor = "yellow"; break; // if medium risk, yellow background
+            case "High": riskCard.style.backgroundColor = "red"; break; // if high risk, red background
+        }
+
         // Task 3: Removing Risk Items
         // adding resolve button to risk cards
         riskCard.querySelector(".resolveBtn").addEventListener("click", () => { 
